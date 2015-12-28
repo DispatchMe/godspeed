@@ -51,6 +51,9 @@ type Godspeed struct {
 	// due to the body being truncated. Meant for when a single emission would
 	// be greater than 8192 bytes.
 	AutoTruncate bool
+
+	// Set this to true to not actually do any sending. Useful for testing, etc
+	Mock bool
 }
 
 // New returns a new instance of a Godspeed statsd client.

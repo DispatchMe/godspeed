@@ -17,6 +17,12 @@ import (
 // The kind is "g" for gauge, "c" for count, "ms" for timing, etc.
 // This returns any error hit during the flushing of the stat
 func (g *Godspeed) Send(stat, kind string, delta, sampleRate float64, tags []string) (err error) {
+
+	// Don't do anything if it's set to mock mode
+	if g.Mock {
+		return nil
+	}
+
 	// if the connection hasn't been set up yet
 	if g.Conn == nil {
 		return fmt.Errorf("socket not created")
