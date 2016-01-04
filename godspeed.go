@@ -91,6 +91,10 @@ func NewDefault() (g *Godspeed, err error) {
 	return
 }
 
+func (g *Godspeed) SetMock(mock bool) {
+	g.Mock = mock
+}
+
 // AddTag allows you to add a tag for all future emitted stats.
 // It takes the tag as a string, and returns a []string containing all Godspeed tags
 func (g *Godspeed) AddTag(tag string) []string {
